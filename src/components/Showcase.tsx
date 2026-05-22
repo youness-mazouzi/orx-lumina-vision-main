@@ -587,11 +587,11 @@ export function Showcase() {
     <section id="work" ref={ref} className="relative py-32 px-6 overflow-hidden">
       {/* Section Background Glows */}
       <motion.div
-        style={{ y, background: "radial-gradient(circle, oklch(0.65 0.28 300 / 0.35), transparent 70%)" }}
+        style={{ y, background: "radial-gradient(circle, oklch(1 0 0 / 0.15), transparent 70%)" }}
         className="absolute -left-[10%] top-20 h-[550px] w-[550px] rounded-full opacity-35 pointer-events-none filter blur-[40px]"
       />
       <motion.div
-        style={{ y: useTransform(scrollYProgress, [0, 1], [-40, 120]), background: "radial-gradient(circle, oklch(0.72 0.22 245 / 0.25), transparent 70%)" }}
+        style={{ y: useTransform(scrollYProgress, [0, 1], [-40, 120]), background: "radial-gradient(circle, oklch(0.8 0 0 / 0.1), transparent 70%)" }}
         className="absolute -right-[10%] bottom-10 h-[600px] w-[600px] rounded-full opacity-30 pointer-events-none filter blur-[50px]"
       />
 
@@ -607,12 +607,12 @@ export function Showcase() {
             className="max-w-2xl"
           >
             <div className="inline-flex items-center gap-2 glass px-3.5 py-1.5 rounded-full mb-6 text-xs tracking-wider">
-              <Sparkles className="h-3.5 w-3.5 text-[oklch(0.72_0.22_245)] animate-pulse" />
-              <span className="text-[10px] tracking-[0.25em] uppercase text-muted-foreground font-mono">SELECTED ARTIFACTS</span>
+              <Sparkles className="h-3.5 w-3.5 text-white animate-pulse" />
+              <span className="text-[10px] tracking-[0.25em] uppercase text-muted-foreground font-mono">ARTÉFACTS SÉLECTIONNÉS</span>
             </div>
-            <h2 className="font-display text-5xl md:text-7xl font-bold tracking-[-0.04em] leading-[0.92]">
-              Quiet craft.<br/>
-              <span className="text-gradient italic font-light">Loud results.</span>
+            <h2 className="font-display text-5xl md:text-7xl font-bold tracking-[-0.04em] leading-[0.92] text-white">
+              Savoir-faire discret.<br/>
+              <span className="text-gradient italic font-light">Résultats éclatants.</span>
             </h2>
           </motion.div>
           
@@ -621,10 +621,10 @@ export function Showcase() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9, delay: 0.15 }}
-            className="max-w-sm text-sm text-muted-foreground leading-relaxed"
+            className="max-w-sm text-sm text-muted-foreground leading-relaxed font-medium"
           >
-            A curated grid of digital products engineered with premium precision.
-            Each frame calculated, each interaction custom-crafted to elevate.
+            Une sélection de produits numériques conçus avec une précision premium. 
+            Chaque image calculée, chaque interaction façonnée sur mesure.
           </motion.p>
         </div>
 

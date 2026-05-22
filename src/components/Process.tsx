@@ -2,10 +2,10 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 const steps = [
-  { n: "01", t: "Discover", d: "We listen, audit and define the mission." },
-  { n: "02", t: "Design", d: "Strategy meets craft — every pixel intentional." },
-  { n: "03", t: "Develop", d: "Engineered with modern tools and automation." },
-  { n: "04", t: "Deliver", d: "Ship fast. Iterate. Scale beyond launch." },
+  { n: "01", t: "Découvrir", d: "Nous écoutons, auditons et définissons la mission." },
+  { n: "02", t: "Concevoir", d: "La stratégie rencontre l'artisanat — chaque pixel est intentionnel." },
+  { n: "03", t: "Développer", d: "Conçu avec des outils modernes et de l'automatisation." },
+  { n: "04", t: "Livrer", d: "Livrer vite. Itérer. Évoluer au-delà du lancement." },
 ];
 
 export function Process() {
@@ -15,16 +15,16 @@ export function Process() {
   return (
     <section id="process" ref={ref} className="relative py-32 px-6 overflow-hidden">
       <motion.div
-        style={{ y, background: "radial-gradient(circle, oklch(0.72 0.22 245 / 0.4), transparent 70%)" }}
-        className="absolute -right-40 top-1/3 h-[400px] w-[400px] rounded-full opacity-40" />
+        style={{ y, background: "radial-gradient(circle, rgba(255,255,255,0.1), transparent 70%)" }}
+        className="absolute -right-40 top-1/3 h-[400px] w-[400px] rounded-full opacity-40 filter blur-[50px]" />
       <div className="relative mx-auto max-w-7xl">
         <motion.h2
           initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          className="font-display text-4xl md:text-6xl font-bold tracking-tighter mb-20 max-w-2xl"
+          className="font-display text-4xl md:text-6xl font-bold tracking-tighter mb-20 max-w-2xl text-white"
         >
-          A process built<br/><span className="text-gradient">for velocity.</span>
+          Un processus conçu<br/><span className="text-neutral-500">pour la vélocité.</span>
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-px bg-white/5 rounded-3xl overflow-hidden glass">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-px bg-white/5 rounded-3xl overflow-hidden glass border border-white/5">
           {steps.map((s, i) => (
             <motion.div
               key={s.n}
@@ -32,13 +32,13 @@ export function Process() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="relative p-8 md:p-10 bg-background/40 hover:bg-white/[0.03] transition-colors group"
+              className="relative p-8 md:p-10 bg-background/80 hover:bg-white/[0.05] transition-colors group"
             >
-              <div className="font-display text-5xl font-bold text-gradient mb-6">{s.n}</div>
-              <h3 className="font-display text-xl font-semibold mb-2">{s.t}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{s.d}</p>
+              <div className="font-display text-5xl font-bold text-white/90 mb-6 group-hover:text-white transition-colors">{s.n}</div>
+              <h3 className="font-display text-xl font-semibold mb-2 text-white">{s.t}</h3>
+              <p className="text-sm text-neutral-400 leading-relaxed font-medium">{s.d}</p>
               <div className="absolute bottom-0 left-0 h-px w-0 group-hover:w-full transition-all duration-700"
-                style={{ background: "linear-gradient(90deg, transparent, oklch(0.72 0.22 245), oklch(0.65 0.28 300))" }} />
+                style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.8), rgba(255,255,255,0.3))" }} />
             </motion.div>
           ))}
         </div>

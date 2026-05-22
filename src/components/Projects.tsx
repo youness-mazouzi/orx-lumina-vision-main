@@ -254,8 +254,8 @@ function Mockup({ type, accent }: { type: Project["mockup"]; accent: string }) {
         <span className="text-[9px] tracking-[0.3em] uppercase text-white/70">Now in private beta</span>
       </div>
       <div className="font-display text-4xl md:text-5xl font-semibold tracking-tight text-white">Orbital</div>
-      <div className="text-sm text-white/60 mt-2 max-w-[240px]">Ship infrastructure at the speed of thought.</div>
-      <div className="mt-5 inline-flex items-center gap-2 rounded-full px-4 py-2 text-[11px] font-medium" style={{background: accent, color:"oklch(0.08 0 0)"}}>Request access <ArrowUpRight className="h-3 w-3"/></div>
+      <div className="text-sm text-white/60 mt-2 max-w-[240px]">Expédiez l'infrastructure à la vitesse de la pensée.</div>
+      <div className="mt-5 inline-flex items-center gap-2 rounded-full px-4 py-2 text-[11px] font-medium" style={{background: accent, color:"oklch(0.08 0 0)"}}>Demander l'accès <ArrowUpRight className="h-3 w-3"/></div>
     </div>
   );
 }
@@ -269,7 +269,7 @@ export function Projects() {
   return (
     <section id="projects" ref={ref} className="relative py-32 px-6 overflow-hidden">
       <motion.div
-        style={{ y: blobY, background: "radial-gradient(circle, oklch(0.72 0.22 245 / 0.35), transparent 70%)" }}
+        style={{ y: blobY, background: "radial-gradient(circle, oklch(1 0 0 / 0.15), transparent 70%)" }}
         className="absolute right-[-10%] top-40 h-[520px] w-[520px] rounded-full opacity-40 pointer-events-none"
       />
       <div className="relative mx-auto max-w-[1400px]">
@@ -280,21 +280,21 @@ export function Projects() {
             className="max-w-2xl"
           >
             <div className="inline-flex items-center gap-2 glass px-3 py-1 rounded-full mb-6">
-              <span className="h-1.5 w-1.5 rounded-full bg-[oklch(0.65_0.28_300)] animate-pulse" />
-              <span className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground">Selected projects · MMXXV–XXVI</span>
+              <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
+              <span className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground">Projets sélectionnés · MMXXV–XXVI</span>
             </div>
-            <h2 className="font-display text-5xl md:text-7xl font-bold tracking-[-0.045em] leading-[0.92]">
-              A library of<br/>
-              <span className="text-gradient italic font-light">obsessions</span>, shipped.
+            <h2 className="font-display text-5xl md:text-7xl font-bold tracking-[-0.045em] leading-[0.92] text-white">
+              Une bibliothèque<br/>
+              d'<span className="text-gradient italic font-light">obsessions</span>, livrée.
             </h2>
           </motion.div>
           <motion.p
             initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             transition={{ duration: 0.9, delay: 0.1 }}
-            className="max-w-sm text-sm text-muted-foreground leading-relaxed"
+            className="max-w-sm text-sm text-muted-foreground leading-relaxed font-medium"
           >
-            Eight recent collaborations with founders, ateliers and category-defining
-            teams. Every pixel weighed, every transition felt.
+            Huit collaborations récentes avec des fondateurs, des ateliers et des équipes visionnaires. 
+            Chaque pixel pesé, chaque transition ressentie.
           </motion.p>
         </div>
 

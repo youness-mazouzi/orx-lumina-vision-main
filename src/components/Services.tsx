@@ -6,46 +6,46 @@ import { toast } from "sonner";
 const services = [
   {
     icon: Code2,
-    title: "Tech & Development",
-    desc: "Custom websites, scalable systems, and modern digital platforms engineered for speed, security, and business growth.",
-    waMessage: "Hello ORX Services, I’m interested in Tech & Development services. I would like more information about websites, applications, or system development.",
-    igMessage: "Hello ORX Services! I’m interested in your Tech & Development services. I would like to get a quote/more information about custom website development or digital platform systems.",
+    title: "Technologie & Développement",
+    desc: "Sites web sur mesure, systèmes évolutifs et plateformes numériques modernes conçus pour la vitesse, la sécurité et la croissance.",
+    waMessage: "Bonjour ORX Services, je suis intéressé(e) par vos services de Technologie & Développement. J'aimerais plus d'informations.",
+    igMessage: "Bonjour ORX Services ! Je suis intéressé(e) par vos services de Technologie & Développement. J'aimerais un devis ou plus d'informations.",
   },
   {
     icon: Palette,
-    title: "Design & Creativity",
-    desc: "Luxury branding, UI/UX experiences, visual identities, and modern creative direction built to elevate your brand.",
-    waMessage: "Hello ORX Services, I’m interested in Design & Creativity services. I would like a branding, logo, or UI/UX design quote.",
-    igMessage: "Hello ORX Services! I’m interested in your Design & Creativity services. I would like a branding, logo, or UI/UX design consultation.",
+    title: "Design & Créativité",
+    desc: "Branding de luxe, expériences UI/UX, identités visuelles et direction créative moderne pour élever votre marque.",
+    waMessage: "Bonjour ORX Services, je suis intéressé(e) par vos services de Design & Créativité. J'aimerais un devis pour mon projet.",
+    igMessage: "Bonjour ORX Services ! Je suis intéressé(e) par vos services de Design & Créativité. J'aimerais une consultation.",
   },
   {
     icon: Video,
-    title: "Video & Audio",
-    desc: "High-end cinematic editing, motion graphics, promotional reels, and immersive sound production for modern businesses.",
-    waMessage: "Hello ORX Services, I’m interested in Video & Audio services. I need editing, motion graphics, or promotional content.",
-    igMessage: "Hello ORX Services! I’m interested in your Video & Audio services. I need high-end video editing, motion graphics, or promotional content creation.",
+    title: "Vidéo & Audio",
+    desc: "Montage cinématique haut de gamme, motion design, vidéos promotionnelles et production sonore immersive.",
+    waMessage: "Bonjour ORX Services, je suis intéressé(e) par vos services de Vidéo & Audio. J'ai besoin de contenu vidéo/audio.",
+    igMessage: "Bonjour ORX Services ! Je suis intéressé(e) par vos services de Vidéo & Audio. J'ai un projet de création de contenu.",
   },
   {
     icon: PenLine,
-    title: "Writing & Content",
-    desc: "Strategic copywriting, persuasive storytelling, SEO content, and high-conversion brand messaging.",
-    waMessage: "Hello ORX Services, I’m interested in Writing & Content services. I would like content creation or copywriting support.",
-    igMessage: "Hello ORX Services! I’m interested in your Writing & Content services. I would like copy or content creation support for my brand.",
+    title: "Rédaction & Contenu",
+    desc: "Copywriting stratégique, storytelling persuasif, contenu SEO et messages de marque à fort taux de conversion.",
+    waMessage: "Bonjour ORX Services, je suis intéressé(e) par vos services de Rédaction & Contenu.",
+    igMessage: "Bonjour ORX Services ! Je suis intéressé(e) par vos services de Rédaction & Contenu pour ma marque.",
   },
   {
     icon: TrendingUp,
-    title: "Marketing & Growth",
-    desc: "Performance marketing, social media growth, SEO optimization, and digital campaigns designed for measurable results.",
-    waMessage: "Hello ORX Services, I’m interested in Marketing & Growth services. I want help growing my business online.",
-    igMessage: "Hello ORX Services! I’m interested in your Marketing & Growth services. I want support with performance marketing, SEO, and social growth.",
+    title: "Marketing & Croissance",
+    desc: "Marketing à la performance, croissance sur les réseaux sociaux, optimisation SEO et campagnes numériques axées sur les résultats.",
+    waMessage: "Bonjour ORX Services, je suis intéressé(e) par vos services de Marketing & Croissance.",
+    igMessage: "Bonjour ORX Services ! Je suis intéressé(e) par vos services de Marketing & Croissance pour développer mon activité.",
   },
   {
     icon: Brain,
-    title: "Automation & Systems",
-    desc: "Intelligent automation systems, chatbots, workflow optimization, and smart business integrations.",
+    title: "Automatisation & Systèmes",
+    desc: "Systèmes d'automatisation intelligents, chatbots, optimisation des flux de travail et intégrations professionnelles.",
     featured: true,
-    waMessage: "Hello ORX Services, I’m interested in Automation & Systems services. I would like automation solutions for my business.",
-    igMessage: "Hello ORX Services! I’m interested in your Automation & Systems services. I'm looking for smart automation solutions or chatbot integrations.",
+    waMessage: "Bonjour ORX Services, je suis intéressé(e) par vos services d'Automatisation & Systèmes.",
+    igMessage: "Bonjour ORX Services ! Je suis intéressé(e) par des solutions d'Automatisation & Systèmes pour mon entreprise.",
   },
 ];
 
@@ -79,15 +79,12 @@ function ServiceCard({ s, i }: { s: typeof services[number]; i: number }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
 
-  // Motion values for smooth mouse tracking
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  // Smooth springs for 3D card tilt
-  const rx = useSpring(useTransform(mouseY, [-0.5, 0.5], [6, -6]), { stiffness: 180, damping: 18 });
-  const ry = useSpring(useTransform(mouseX, [-0.5, 0.5], [-6, 6]), { stiffness: 180, damping: 18 });
+  const rx = useSpring(useTransform(mouseY, [-0.5, 0.5], [4, -4]), { stiffness: 180, damping: 20 });
+  const ry = useSpring(useTransform(mouseX, [-0.5, 0.5], [-4, 4]), { stiffness: 180, damping: 20 });
 
-  // Mouse absolute pixel coordinates for radial glow
   const glowX = useMotionValue(0);
   const glowY = useMotionValue(0);
   const glowOpacity = useSpring(0, { stiffness: 220, damping: 22 });
@@ -96,13 +93,11 @@ function ServiceCard({ s, i }: { s: typeof services[number]; i: number }) {
     if (!cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
 
-    // Normalized values for 3D tilt (-0.5 to 0.5)
     const normalizedX = (e.clientX - rect.left) / rect.width - 0.5;
     const normalizedY = (e.clientY - rect.top) / rect.height - 0.5;
     mouseX.set(normalizedX);
     mouseY.set(normalizedY);
 
-    // Pixel values for gradient positioning
     glowX.set(e.clientX - rect.left);
     glowY.set(e.clientY - rect.top);
   };
@@ -120,7 +115,6 @@ function ServiceCard({ s, i }: { s: typeof services[number]; i: number }) {
   };
 
   const Icon = s.icon;
-  // Automatically encode the custom message for URL
   const waLink = `https://wa.me/212782861844?text=${encodeURIComponent(s.waMessage)}`;
   const igLink = "https://ig.me/m/orx__orx";
 
@@ -131,15 +125,15 @@ function ServiceCard({ s, i }: { s: typeof services[number]; i: number }) {
       navigator.clipboard.writeText(s.igMessage)
         .then(() => {
           toast.custom((t) => (
-            <div className="flex flex-col gap-2 p-4 rounded-2xl bg-neutral-950/95 border border-white/10 backdrop-blur-xl shadow-[0_0_30px_rgba(221,42,123,0.22)] text-white w-full max-w-sm pointer-events-auto transition-all duration-300">
+            <div className="flex flex-col gap-2 p-4 rounded-2xl bg-neutral-950/95 border border-white/10 backdrop-blur-xl shadow-[0_0_30px_rgba(255,255,255,0.05)] text-white w-full max-w-sm pointer-events-auto transition-all duration-300">
               <div className="flex items-start justify-between gap-3">
                 <div className="flex items-center gap-3">
-                  <div className="h-9 w-9 rounded-xl bg-[#DD2A7B]/10 flex items-center justify-center border border-[#DD2A7B]/20 shrink-0">
+                  <div className="h-9 w-9 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 shrink-0">
                     <InstagramIcon />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-sm text-white leading-tight">Request copied! 📥</h4>
-                    <p className="text-xs text-neutral-400 mt-0.5">Collih direct f l-chat dyal Instagram</p>
+                    <h4 className="font-semibold text-sm text-white leading-tight">Message copié ! 📥</h4>
+                    <p className="text-xs text-neutral-400 mt-0.5">Collez-le directement sur Instagram</p>
                   </div>
                 </div>
                 <button 
@@ -172,7 +166,7 @@ function ServiceCard({ s, i }: { s: typeof services[number]; i: number }) {
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.8, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
@@ -181,107 +175,92 @@ function ServiceCard({ s, i }: { s: typeof services[number]; i: number }) {
         rotateY: ry,
         transformPerspective: 1200,
       }}
-      className="group relative p-[1px] rounded-[28px] overflow-hidden transition-all duration-500 shadow-2xl hover:shadow-purple-500/10 hover:-translate-y-1 min-h-[520px] md:min-h-[540px]"
+      className="group relative p-[1px] rounded-[24px] overflow-hidden transition-all duration-500 shadow-2xl hover:-translate-y-1 min-h-[480px] md:min-h-[500px]"
     >
-      {/* Interactive Border Light (Radial Gradient following cursor) */}
+      {/* Interactive Border Light (Subtle White Glow) */}
       <motion.div
-        className="pointer-events-none absolute -inset-px rounded-[28px] transition-opacity duration-500 z-0"
+        className="pointer-events-none absolute -inset-px rounded-[24px] transition-opacity duration-500 z-0"
         style={{
           opacity: glowOpacity,
           background: useTransform(
             [glowX, glowY],
             ([x, y]) =>
-              `radial-gradient(160px circle at ${x}px ${y}px, var(--color-neon-purple) 0%, var(--color-neon-blue) 40%, transparent 100%)`
+              `radial-gradient(150px circle at ${x}px ${y}px, rgba(255,255,255,0.4) 0%, transparent 100%)`
           ),
         }}
       />
 
-      {/* Static Subtle Border (Fallback when not hovered) */}
-      <div className="absolute inset-px rounded-[28px] border border-white/5 pointer-events-none z-0 transition-opacity duration-500 group-hover:opacity-0" />
+      <div className="absolute inset-px rounded-[24px] border border-white/5 pointer-events-none z-0 transition-opacity duration-500 group-hover:opacity-0" />
 
       {/* Main Glassmorphic Card Container */}
-      <div className="relative z-10 h-full w-full rounded-[27px] bg-neutral-950/80 backdrop-blur-2xl p-8 md:p-10 flex flex-col justify-between gap-10 overflow-hidden">
-        {/* Soft Ambient Cursor-Tracking Background Glow */}
+      <div className="relative z-10 h-full w-full rounded-[23px] bg-neutral-950/90 backdrop-blur-2xl p-8 flex flex-col justify-between gap-8 overflow-hidden">
+        {/* Soft Ambient Glow */}
         <motion.div
-          className="pointer-events-none absolute -inset-px rounded-[27px] transition-opacity duration-500"
+          className="pointer-events-none absolute -inset-px rounded-[23px] transition-opacity duration-500"
           style={{
-            opacity: useTransform(glowOpacity, (v) => v * 0.12),
+            opacity: useTransform(glowOpacity, (v) => v * 0.05),
             background: useTransform(
               [glowX, glowY],
               ([x, y]) =>
-                `radial-gradient(260px circle at ${x}px ${y}px, var(--color-neon-purple) 0%, var(--color-neon-blue) 50%, transparent 100%)`
+                `radial-gradient(200px circle at ${x}px ${y}px, rgba(255,255,255,0.8) 0%, transparent 100%)`
             ),
           }}
         />
 
-        {/* Featured Card Ambient Static Accent */}
         {s.featured && (
           <div
-            className="absolute top-0 right-0 w-[450px] h-[450px] -translate-y-1/2 translate-x-1/3 rounded-full pointer-events-none opacity-20 transition-opacity duration-1000 group-hover:opacity-30"
+            className="absolute top-0 right-0 w-[400px] h-[400px] -translate-y-1/2 translate-x-1/3 rounded-full pointer-events-none opacity-10 transition-opacity duration-1000 group-hover:opacity-20"
             style={{
-              background: "radial-gradient(circle, var(--color-neon-purple) 0%, var(--color-neon-blue) 60%, transparent 100%)",
-              filter: "blur(70px)",
+              background: "radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 100%)",
+              filter: "blur(60px)",
             }}
           />
         )}
 
-        {/* Top Header Row of Card */}
         <div className="relative z-10 flex items-center justify-between">
-          <div className="glass-strong h-14 w-14 rounded-2xl flex items-center justify-center border border-white/10 shadow-lg shadow-black/40 transition-all duration-500 group-hover:scale-110 group-hover:border-purple-500/30 group-hover:shadow-purple-500/5">
-            <Icon className="h-6 w-6 text-purple-300 transition-colors duration-500 group-hover:text-white" />
+          <div className="h-12 w-12 rounded-xl flex items-center justify-center border border-white/10 bg-white/5 shadow-lg transition-all duration-500 group-hover:scale-110 group-hover:border-white/20 group-hover:bg-white/10">
+            <Icon className="h-5 w-5 text-neutral-300 transition-colors duration-500 group-hover:text-white" />
           </div>
-          <span className="text-xs font-mono tracking-widest text-neutral-500/80 group-hover:text-purple-300 transition-colors duration-500">
+          <span className="text-[10px] font-mono tracking-widest text-neutral-600 group-hover:text-neutral-400 transition-colors duration-500">
             0{i + 1}
           </span>
         </div>
 
-        {/* Card Typography & Text Content */}
-        <div className="relative z-10 flex-grow flex flex-col justify-between">
-          <div>
-            <h3 className="font-display text-2xl md:text-3xl font-bold tracking-tight text-white mb-4 transition-colors duration-500 group-hover:text-purple-100">
-              {s.title}
-            </h3>
-            <p className="text-sm md:text-[15px] leading-relaxed text-neutral-400 font-normal transition-colors duration-500 group-hover:text-neutral-300 max-w-xl">
-              {s.desc}
-            </p>
-          </div>
+        <div className="relative z-10 flex-grow flex flex-col justify-start mt-6">
+          <h3 className="font-display text-xl md:text-2xl font-bold tracking-tight text-white mb-3 transition-colors duration-500">
+            {s.title}
+          </h3>
+          <p className="text-sm md:text-[15px] leading-relaxed text-neutral-400 font-normal transition-colors duration-500 group-hover:text-neutral-300 max-w-xl">
+            {s.desc}
+          </p>
         </div>
 
-        {/* Action Button Container - WhatsApp & Instagram Stack */}
-        <div className="relative z-20 flex flex-col gap-3">
-          {/* Premium Call to Action Button - WhatsApp */}
+        <div className="relative z-20 flex flex-col gap-2 mt-4">
           <a
             href={waLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-between w-full px-6 py-3.5 rounded-full border border-white/5 bg-gradient-to-r from-neutral-900/60 to-neutral-950/60 backdrop-blur-md text-sm font-semibold text-neutral-300 shadow-lg shadow-black/40 hover:text-white hover:border-[#25D366]/30 hover:shadow-[0_0_24px_rgba(37,211,102,0.18)] hover:-translate-y-0.5 transition-all duration-300 group/btn cursor-pointer"
+            className="flex items-center justify-between w-full px-5 py-3 rounded-xl border border-white/5 bg-white/5 text-sm font-medium text-neutral-300 hover:text-white hover:bg-white/10 hover:border-[#25D366]/30 transition-all duration-300 group/btn"
           >
             <div className="flex items-center gap-2.5">
               <WhatsAppIcon />
-              <span>Order via WhatsApp</span>
+              <span>Commander via WhatsApp</span>
             </div>
-            <div className="flex items-center gap-1">
-              <span className="text-xs text-neutral-500 group-hover/btn:text-[#25D366] transition-colors duration-300 font-medium">Request</span>
-              <ArrowUpRight className="h-4 w-4 text-neutral-500 transition-all duration-300 group-hover/btn:text-[#25D366] group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
-            </div>
+            <ArrowUpRight className="h-4 w-4 text-neutral-500 group-hover/btn:text-[#25D366] transition-colors duration-300" />
           </a>
 
-          {/* Premium Call to Action Button - Instagram DM */}
           <a
             href={igLink}
             onClick={handleInstagramClick}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-between w-full px-6 py-3.5 rounded-full border border-white/5 bg-gradient-to-r from-neutral-900/60 to-neutral-950/60 backdrop-blur-md text-sm font-semibold text-neutral-300 shadow-lg shadow-black/40 hover:text-white hover:border-[#DD2A7B]/30 hover:shadow-[0_0_24px_rgba(221,42,123,0.18)] hover:-translate-y-0.5 transition-all duration-300 group/btn cursor-pointer"
+            className="flex items-center justify-between w-full px-5 py-3 rounded-xl border border-white/5 bg-white/5 text-sm font-medium text-neutral-300 hover:text-white hover:bg-white/10 hover:border-[#DD2A7B]/30 transition-all duration-300 group/btn"
           >
             <div className="flex items-center gap-2.5">
               <InstagramIcon />
-              <span>Message on Instagram</span>
+              <span>Message sur Instagram</span>
             </div>
-            <div className="flex items-center gap-1">
-              <span className="text-xs text-neutral-500 group-hover/btn:text-[#DD2A7B] transition-colors duration-300 font-medium">Chat</span>
-              <ArrowUpRight className="h-4 w-4 text-neutral-500 transition-all duration-300 group-hover/btn:text-[#DD2A7B] group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
-            </div>
+            <ArrowUpRight className="h-4 w-4 text-neutral-500 group-hover/btn:text-[#DD2A7B] transition-colors duration-300" />
           </a>
         </div>
       </div>
@@ -291,37 +270,30 @@ function ServiceCard({ s, i }: { s: typeof services[number]; i: number }) {
 
 export function Services() {
   return (
-    <section id="services" className="relative py-36 px-6 bg-[#050505] overflow-hidden">
-      {/* Cybernetic Grid Background with Ambient Texture */}
-      <div className="absolute inset-0 grid-bg opacity-[0.15] mix-blend-screen pointer-events-none" />
-
-      {/* Neon Purple/Blue Giant Ambient Glowing Spheres */}
-      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,var(--color-neon-purple)_0%,transparent_70%)] opacity-[0.06] blur-[120px] pointer-events-none animate-glow-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-[700px] h-[700px] rounded-full bg-[radial-gradient(circle,var(--color-neon-blue)_0%,transparent_70%)] opacity-[0.05] blur-[140px] pointer-events-none animate-glow-pulse [animation-delay:2s]" />
+    <section id="services" className="relative py-32 px-6 bg-background overflow-hidden">
+      <div className="absolute inset-0 noise opacity-[0.03] pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl">
-        {/* Section Headline */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-20 max-w-3xl"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-16 max-w-3xl"
         >
-          <div className="inline-flex items-center gap-2.5 glass px-4 py-1.5 rounded-full mb-8 border border-white/5">
-            <span className="h-2 w-2 rounded-full bg-purple-400 animate-pulse shadow-md shadow-purple-400" />
-            <span className="text-[11px] font-mono tracking-[0.25em] uppercase text-neutral-400">
-              Agency Capabilities
+          <div className="inline-flex items-center gap-2.5 glass px-4 py-1.5 rounded-full mb-6 border border-white/10">
+            <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse shadow-md shadow-white" />
+            <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-neutral-400">
+              Compétences de l'Agence
             </span>
           </div>
-          <h2 className="font-display text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.05] text-white">
-            Six services.<br />
-            <span className="text-gradient font-black">One intelligent studio.</span>
+          <h2 className="font-display text-4xl md:text-6xl font-extrabold tracking-tight leading-[1.1] text-white">
+            Six expertises.<br />
+            <span className="text-neutral-500">Un studio intelligent.</span>
           </h2>
         </motion.div>
 
-        {/* Perfectly Balanced Responsive Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s, i) => (
             <ServiceCard key={s.title} s={s} i={i} />
           ))}
